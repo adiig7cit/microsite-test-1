@@ -7,8 +7,8 @@ const Header = () => {
       <div>
         <img src={HeaderBackgroundImage} />
       </div>
-      <div className="absolute inset-x-0 inset-y-8 bottom-0 flex justify-center">
-        <img src={HeaderMainImage} className="h-16 w-16" />
+      <div className="absolute inset-x-0 md:ml-12 md:inset-x-auto md:inset-y-16 inset-y-8 lg:inset-y-28 flex justify-center">
+        <img src={HeaderMainImage} className="h-16 w-16 lg:h-40 lg:w-40 md:h-32 md:w-32" />
       </div>
     </div>
   );

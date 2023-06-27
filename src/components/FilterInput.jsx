@@ -1,7 +1,7 @@
 // eslint-disable-next-line react/prop-types
 const FilterInput = ({ placeholder }) => {
   return (
-    <div className="flex relative">
+    <div className="flex relative w-full justify-center h-16">
       <input
         type="search"
         id=""
@@ -15,7 +15,7 @@ const FilterInput = ({ placeholder }) => {
         viewBox="0 0 24 24"
         strokeWidth={1.5}
         stroke="black"
-        className="w-6 h-6 absolute top-1/2 right-4 transform -translate-y-1/2 hover:cursor-pointer"
+        className="w-6 h-6 absolute top-1/2 right-3 transform -translate-y-1/2 hover:cursor-pointer"
         style={{ pointerEvents: "none" }}
       >
         <path
