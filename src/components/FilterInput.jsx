@@ -9,7 +9,7 @@ const FilterInput = () => {
       container
       style={{
         width: "100%",
-        marginTop: "3rem",
+        marginTop: "4rem",
         padding: "0 1.2rem",
         justifyContent: "center",
       }}

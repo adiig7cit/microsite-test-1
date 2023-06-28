@@ -2,10 +2,10 @@
 const CollegeDescription = () => {
   return (
     <div className="flex flex-col md:mx-12 lg:mr-12 justify-center p-4 h-fit md:mt-12 lg:mt-20 font-Outfit">
-      <h2 className="font-bold text-2xl w-full md:w-fit px-2">
+      <h2 className="font-semibold text-3xl w-full md:w-fit px-2">
         Welcome to UCLA Chat!
       </h2>
-      <p className="mt-4 px-2">
+      <p className="mt-4 px-2 text-xl">
         Your personal gateway into the vibrant community and academic excellence
         that is the hallmark of UCLA School of Law. Connect directly with our
         student ambassadors via WhatsApp and dive into UCLA Law&rsquo;s rich

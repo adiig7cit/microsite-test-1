@@ -30,10 +30,10 @@ const Header = () => {
         <span>Apply now</span>
       </div>
 
-      <div className="absolute inset-x-0 md:ml-20 lg:ml-28 md:inset-x-auto md:inset-y-28 inset-y-11 lg:inset-y-24 flex justify-center">
+      <div className="absolute inset-x-0 md:ml-20 lg:ml-28 md:inset-x-auto md:inset-y-28 inset-y-10 lg:inset-y-24 flex justify-center">
         <img
           src={HeaderMainImage}
-          className="h-16 w-16 lg:h-40 lg:w-40 md:h-32 md:w-32"
+          className="h-20 w-20 lg:h-40 lg:w-40 md:h-32 md:w-32"
         />
       </div>
     </div>
