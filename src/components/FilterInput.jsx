@@ -1,30 +1,58 @@
 // eslint-disable-next-line react/prop-types
-const FilterInput = ({ placeholder }) => {
+import { Grid, InputLabel } from "@mui/material";
+import Select from "@mui/material/Select";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+const FilterInput = () => {
   return (
-    <div className="flex relative w-full justify-center h-16">
-      <input
-        type="search"
-        id=""
-        className="w-72 border-2 border-[#B8BBC2] rounded-xl p-4 text-black placeholder-black"
-        placeholder={placeholder}
-        required
-      />
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.5}
-        stroke="black"
-        className="w-6 h-6 absolute top-1/2 right-3 transform -translate-y-1/2 hover:cursor-pointer"
-        style={{ pointerEvents: "none" }}
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-        />
-      </svg>
-    </div>
+    <Grid
+      container
+      style={{
+        width: "100%",
+        marginTop: "3rem",
+        padding: "0 1.2rem",
+        justifyContent: "center",
+      }}
+      sx={{ gap: "1rem" }}
+      sm={{ gap: "3rem" }}
+    >
+      <Grid item xs={5.7} sm={3}>
+        <FormControl fullWidth>
+          <InputLabel id="uni-select" sx={{ fontFamily: "DM Sans" }}>
+            Country
+          </InputLabel>
+          <Select
+            labelId="uni-select"
+            name="universityMentor"
+            id="uni-select-dropdown"
+            label="University"
+            xs={{ borderRadius: "20px" }}
+            style={{ borderRadius: "13px" }}
+          >
+            <MenuItem value="">
+              <em>None</em>
+            </MenuItem>
+          </Select>
+        </FormControl>
+      </Grid>
+
+      <Grid item xs={5.7} sm={3}>
+        <FormControl fullWidth>
+          <InputLabel id="special-select" sx={{ fontFamily: "DM Sans" }}>
+            Specialization
+          </InputLabel>
+          <Select
+            labelId="special-select"
+            id="special-select-dropdown"
+            name="specializationMentor"
+            label="Specialization"
+            style={{ borderRadius: "13px" }}
+          >
+            <MenuItem>None</MenuItem>
+          </Select>
+        </FormControl>
+      </Grid>
+    </Grid>
   );
 };
 

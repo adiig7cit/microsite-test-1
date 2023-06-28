@@ -1,7 +1,7 @@
 
 const CollegeDescription = () => {
   return (
-    <div className="flex flex-col md:mx-32 justify-center p-4 h-fit md:mt-28 lg:mt-40 font-Outfit">
+    <div className="flex flex-col md:mx-12 lg:mr-12 justify-center p-4 h-fit md:mt-12 lg:mt-20 font-Outfit">
       <h2 className="font-bold text-2xl w-full md:w-fit px-2">
         Welcome to UCLA Chat!
       </h2>

@@ -1,7 +1,7 @@
 import Header from "./components/Header"
 import CollegeDescription from './components/CollegeDescription'
-import Filters from "./components/Filters"
 import Ambassadors from "./components/Ambassadors"
+import FilterInput from "./components/FilterInput"
 
 const App = () => {
 
@@ -9,7 +9,7 @@ const App = () => {
     <div className="flex flex-col w-full">
       <Header />
       <CollegeDescription />
-      <Filters />
+      <FilterInput />
       <Ambassadors />
     </div>
   )
