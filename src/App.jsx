@@ -1,6 +1,7 @@
 import Header from "./components/Header"
 import CollegeDescription from './components/CollegeDescription'
 import Filters from "./components/Filters"
+import Ambassadors from "./components/Ambassadors"
 
 const App = () => {
 
@@ -9,6 +10,7 @@ const App = () => {
       <Header />
       <CollegeDescription />
       <Filters />
+      <Ambassadors />
     </div>
   )
 }
