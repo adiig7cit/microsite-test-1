@@ -40,7 +40,7 @@ const Header = () => {
           </div>
         )}
       </div>
-      <div className="lg:flex inset-x-10 mt-2 relative hidden bottom-0 justify-center font-Outfit font-semibold text-lg gap-10 md:flex-row">
+      <div className="lg:flex inset-x-0 absolute hidden bottom-0 justify-center font-Outfit font-semibold text-lg gap-10 md:flex-row">
         <span>Home</span>
         <span>L.L.M. degree requirements</span>
         <span>Specializations</span>

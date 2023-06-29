@@ -1,23 +1,29 @@
 import WhatsappOutlinedIcon from "@mui/icons-material/WhatsApp";
 import AmbassadorHeadImage from './../assets/AmbassadorHeadImage.png'
+import { Box, Modal } from "@mui/material";
+import { useState } from "react";
+import IndirectPostForm from './IndirectPostForm'
+
 const AmbassadorCard = () => {
+  const [modalOpen, setModalOpen] = useState(false);
+  
+  const handleOpen = () => setModalOpen(true);
+  const handleClose = () => setModalOpen(false);
+
   return (
-    <div className="w-[340px] h-[445px] mx-auto bg-white mb-5 shadow-lg">
-      <div className="bg-[#2874AE] h-[134px]">
-        <div className="bg-white w-[100px] h-[100px] mt-[48px] rounded-full p-[2px] translate-x-[118px] translate-y-[-40px]">
-          <img
-            src={AmbassadorHeadImage}
-            className="w-full h-full rounded-full"
-          />
+    <div className="w-[340px] h-fit mx-auto mb-5 mt-16 shadow-lg">
+      <div className="bg-[#2874AE] h-32 relative">
+        <div className="absolute flex justify-center inset-x-0 -mt-14">
+          <img src={AmbassadorHeadImage} className="w-24 h-24 rounded-full" />
         </div>
-        <div className="flex flex-col justify-center items-center">
-          <h3 className="text-white font-bold text-base font-Outfit mb-[5px] -mt-[35px]">
+        <div className="absolute bottom-0 mb-2 flex flex-col inset-x-0 items-center gap-2">
+          <h3 className="text-white font-semibold text-lg font-Outfit">
             Rajbhushan
           </h3>
           <a href="#">
             <button
               className="text-white border-[1.5px] border-white 
-            rounded-[25px] py-[3px] px-[22px] hover:cursor-pointer text-xs -mt-[4px]"
+            rounded-3xl py-1 px-5 hover:cursor-pointer text-xs"
             >
               LinkedIn Profile
             </button>
@@ -39,7 +45,10 @@ const AmbassadorCard = () => {
             <p className="text-[#4B4A4A]">COUNTRY</p>
             <p>India</p>
           </div>
-          <button className="bg-[#22CC62] h-10 w-72 text-white font-Outfit text-sm rounded-lg font-medium tracking-lighter">
+          <button
+            className="bg-[#22CC62] h-10 m-auto w-64 text-white font-Outfit text-sm rounded-lg font-medium tracking-lighter"
+            onClick={handleOpen}
+          >
             <div className="align-middle">
               <WhatsappOutlinedIcon />
               &nbsp;&nbsp;Start Whatsapp Chat
@@ -47,6 +56,23 @@ const AmbassadorCard = () => {
           </button>
         </div>
       </div>
+      <Modal open={modalOpen} onClose={handleClose}>
+        <Box
+          sx={{
+            position: "absolute",
+            top: "50%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            width: 400,
+            bgcolor: "background.paper",
+            border: "2px solid #000",
+            boxShadow: 24,
+            p: 4,
+          }}
+        >
+          <IndirectPostForm handleClose={handleClose} />
+        </Box>
+      </Modal>
     </div>
   );
 };
