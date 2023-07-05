@@ -1,24 +1,25 @@
+/* eslint-disable react/prop-types */
 import WhatsappOutlinedIcon from "@mui/icons-material/WhatsApp";
-import AmbassadorHeadImage from './../assets/AmbassadorHeadImage.png'
 import { Box, Modal } from "@mui/material";
 import { useState } from "react";
 import IndirectPostForm from './IndirectPostForm'
+import FormDialogue from "./FormDialogue";
 
-const AmbassadorCard = () => {
+const AmbassadorCard = ({mentor, universities}) => {
   const [modalOpen, setModalOpen] = useState(false);
   
   const handleOpen = () => setModalOpen(true);
   const handleClose = () => setModalOpen(false);
 
   return (
-    <div className="w-[340px] h-fit mx-auto mb-5 mt-16 shadow-lg">
+    <div className="w-[340px] h-[420px] mx-auto mb-5 mt-16 shadow-lg">
       <div className="bg-[#2874AE] h-32 relative">
         <div className="absolute flex justify-center inset-x-0 -mt-14">
-          <img src={AmbassadorHeadImage} className="w-24 h-24 rounded-full" />
+          <img src={mentor.img_url_web} className="w-24 h-24 rounded-full" />
         </div>
         <div className="absolute bottom-0 mb-2 flex flex-col inset-x-0 items-center gap-2">
           <h3 className="text-white font-semibold text-lg font-Outfit">
-            Rajbhushan
+            {mentor.name}
           </h3>
           <a href="#">
             <button
@@ -31,22 +32,22 @@ const AmbassadorCard = () => {
         </div>
       </div>
 
-      <div className="w-full bg-white py-3 px-8 mb-2">
+      <div className="w-full bg-white py-3 px-8">
         <div className="flex flex-col font-Outfit gap-4">
           <div className="flex flex-col">
             <p className="text-[#4B4A4A]">UNIVERSITY</p>
-            <p>Tel Aviv University</p>
+              <p>{mentor.university}</p>
           </div>
           <div className="flex flex-col">
             <p className="text-[#4B4A4A]">SPECIALISATION</p>
-            <p>Law & Business</p>
+            <p>{mentor.specialization}</p>
           </div>
           <div className="flex flex-col">
             <p className="text-[#4B4A4A]">COUNTRY</p>
-            <p>India</p>
+            <p>{mentor.country || "Not available"}</p>
           </div>
           <button
-            className="bg-[#22CC62] h-10 m-auto w-64 text-white font-Outfit text-sm rounded-lg font-medium tracking-lighter"
+            className={`bg-[#22CC62] h-10 mx-auto ${mentor.university.length <= 39 ? 'mt-6' : ''} bottom-0 w-64 text-white font-Outfit text-sm rounded-lg font-medium tracking-lighter`}
             onClick={handleOpen}
           >
             <div className="align-middle">
@@ -70,7 +71,16 @@ const AmbassadorCard = () => {
             p: 4,
           }}
         >
-          <IndirectPostForm handleClose={handleClose} />
+          {mentor.university_mentor === "boston" ||
+          mentor.university_mentor === "ucla" ? (
+            <IndirectPostForm handleClose={handleClose} mentor={mentor} />
+          ) : (
+              <FormDialogue
+                universities={universities}
+                handleClose={handleClose}
+                mentor={mentor}
+            />
+          )}
         </Box>
       </Modal>
     </div>

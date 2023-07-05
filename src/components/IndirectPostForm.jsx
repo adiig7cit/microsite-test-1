@@ -1,5 +1,7 @@
+/* eslint-disable react/prop-types */
 import {
   Alert,
+  Box,
   Button,
   Checkbox,
   CircularProgress,
@@ -9,12 +11,12 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
-// import { useForm } from "../../custom-hooks";
+import { useForm } from "./useForm";
 import CloseIcon from "@mui/icons-material/Close";
-// import { validate } from "./validate";
-// import PhoneNumberInput from "../PhoneNumberInput";
+import { validate } from "./validate";
+import PhoneNumberInput from "./PhoneNumberInput";
 import { useState } from "react";
-// import axios from "axios";
+import axios from "axios";
 
 export const initialFormValues = {
   name: "",
@@ -36,62 +38,64 @@ export const newMentorQuerySubmit = async (data) => {
   );
 };
 
-const IndirectPostForm = ({ handleClose }) => {
-  // const {
-  //   values,
-  //   setValues,
-  //   handleInputChange,
-  //   error,
-  //   setError,
-  // } = useForm(initialFormValues, validate);
+const IndirectPostForm = ({ handleClose, mentor}) => {
 
-//   const [submitClickedOnce, setSubmitClickedOnce] = useState(false);
-//   const [submitting, setSubmitting] = useState(false);
+  const {
+    values,
+    setValues,
+    handleInputChange,
+    error,
+    setError,
+    validateSubmit
+  } = useForm(initialFormValues, validate);
+
+  const [submitClickedOnce, setSubmitClickedOnce] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [alert, setAlert] = useState({ type: "success", show: false });
 
-//   const handleStartChat = () => {
-//     setSubmitClickedOnce(true);
-//     if (
-//       document
-//         .getElementById(mentor.name.split(" ")[0] + "-form")
-//         .checkValidity() &&
-//       validateSubmit()
-//     ) {
-//       setSubmitting(true);
-//       const requestBody = {
-//         ...values,
-//         mentorId: mentor._id,
-//         university_mentor: mentor.university_mentor,
-//       };
-//       newMentorQuerySubmit(requestBody)
-//         .then((data) => {
-//           if (
-//             data.data.status === "CONNECTED" ||
-//             data.data.status === "CONV_CHANGE_REQUEST"
-//           ) {
-//             setAlert({ show: true, type: "success" });
-//             setTimeout(() => {
-//               setAlert((prev) => ({ ...prev, show: false }));
-//               handleClose();
-//             }, 5000);
-//           } else {
-//             setAlert({ show: true, type: "error" });
-//             setTimeout(() => {
-//               setAlert((prev) => ({ ...prev, show: false }));
-//             }, 5000);
-//           }
-//         })
-//         .catch((err) => {
-//           setAlert({ show: true, type: "error" });
-//           setTimeout(() => {
-//             setAlert((prev) => ({ ...prev, show: false }));
-//           }, 5000);
-//         })
-//         .finally(() => {
-//           setSubmitting(false);
-//         });
-//     }
-//   };
+  const handleStartChat = () => {
+    setSubmitClickedOnce(true);
+    if (
+      document
+        .getElementById(mentor.name.split(" ")[0] + "-form")
+        .checkValidity() &&
+      validateSubmit()
+    ) {
+      setSubmitting(true);
+      const requestBody = {
+        ...values,
+        mentorId: mentor._id,
+        university_mentor: mentor.university_mentor,
+      };
+      newMentorQuerySubmit(requestBody)
+        .then((data) => {
+          if (
+            data.data.status === "CONNECTED" ||
+            data.data.status === "CONV_CHANGE_REQUEST"
+          ) {
+            setAlert({ show: true, type: "success" });
+            setTimeout(() => {
+              setAlert((prev) => ({ ...prev, show: false }));
+              handleClose();
+            }, 5000);
+          } else {
+            setAlert({ show: true, type: "error" });
+            setTimeout(() => {
+              setAlert((prev) => ({ ...prev, show: false }));
+            }, 5000);
+          }
+        })
+        .catch(() => {
+          setAlert({ show: true, type: "error" });
+          setTimeout(() => {
+            setAlert((prev) => ({ ...prev, show: false }));
+          }, 5000);
+        })
+        .finally(() => {
+          setSubmitting(false);
+        });
+    }
+  };
 
   return (
     <>
@@ -106,7 +110,7 @@ const IndirectPostForm = ({ handleClose }) => {
         </Alert>
       )}
       <form
-        // onSubmit={(e) => e.preventDefault()}
+        onSubmit={(e) => e.preventDefault()}
       >
         <Grid
           container
@@ -117,8 +121,7 @@ const IndirectPostForm = ({ handleClose }) => {
         >
           <Grid item xs={10}>
             <Typography variant="h5" fontSize="1.2em" fontWeight="bold">
-              {/* Talk to {mentor.name} */}
-              Talk to abc
+              Talk to {mentor.name}
             </Typography>
           </Grid>
           <Grid item xs={2} align="right">
@@ -135,8 +138,8 @@ const IndirectPostForm = ({ handleClose }) => {
               type="field"
               variant="standard"
               name="name"
-              // value={values.name}
-              // onChange={handleInputChange}
+              value={values.name}
+              onChange={handleInputChange}
               required
               InputLabelProps={{
                 style: { fontFamily: "Outfit" },
@@ -153,8 +156,8 @@ const IndirectPostForm = ({ handleClose }) => {
               type="email"
               variant="standard"
               name="email"
-              // value={values.email}
-              // onChange={handleInputChange}
+              value={values.email}
+              onChange={handleInputChange}
               required
               InputLabelProps={{
                 style: { fontFamily: "Outfit" },
@@ -162,23 +165,23 @@ const IndirectPostForm = ({ handleClose }) => {
               fullWidth
             />
           </Grid>
-          {/* <Grid item xs={12} paddingY="8px">
+          <Grid item xs={12} paddingY="8px">
             <PhoneNumberInput
               country="in"
-              // value={values.phone}
-              // onChange={(phone) =>
-              //   handleInputChange({
-              //     target: {
-              //       name: "phone",
-              //       value: phone,
-              //     },
-              //   })
-              // }
-              // error={Boolean(error.phone)}
-              // errorMsg={error.phone}
-            //   submitAttempted={submitClickedOnce}
+              value={values.phone}
+              onChange={(phone) =>
+                handleInputChange({
+                  target: {
+                    name: "phone",
+                    value: phone,
+                  },
+                })
+              }
+              error={Boolean(error.phone)}
+              errorMsg={error.phone}
+              submitAttempted={submitClickedOnce}
             />
-          </Grid> */}
+          </Grid>
           <Grid item xs={12}>
             <TextField
               id="year"
@@ -187,8 +190,8 @@ const IndirectPostForm = ({ handleClose }) => {
               label="When do you wish to apply?"
               variant="standard"
               name="year"
-              // value={values.year}
-              // onChange={handleInputChange}
+              value={values.year}
+              onChange={handleInputChange}
               required
               InputLabelProps={{
                 style: { fontFamily: "DM Sans" },
@@ -206,16 +209,16 @@ const IndirectPostForm = ({ handleClose }) => {
             <FormControlLabel
               control={
                 <Checkbox
-                  // checked={values.checkBox}
-                  // onChange={() => {
-                  //   setValues((prev) => {
-                  //     setError((prevError) => ({
-                  //       ...prevError,
-                  //       checkBox: validate("checkBox", !prev.checkBox),
-                  //     }));
-                  //     return { ...prev, checkBox: !prev.checkBox };
-                  //   });
-                  // }}
+                  checked={values.checkBox}
+                  onChange={() => {
+                    setValues((prev) => {
+                      setError((prevError) => ({
+                        ...prevError,
+                        checkBox: validate("checkBox", !prev.checkBox),
+                      }));
+                      return { ...prev, checkBox: !prev.checkBox };
+                    });
+                  }}
                   required
                 />
               }
@@ -244,7 +247,7 @@ const IndirectPostForm = ({ handleClose }) => {
               }
             />
           </Grid>
-          {/* <Grid item xs={12} marginTop={2} marginBottom={3}>
+          <Grid item xs={12} marginTop={2} marginBottom={3}>
             {!submitting ? (
               <Button
                 sx={{
@@ -259,7 +262,7 @@ const IndirectPostForm = ({ handleClose }) => {
                 }}
                 type="submit"
                 variant="contained"
-                // onClick={handleStartChat}
+                onClick={handleStartChat}
                 disabled={submitting}
               >
                 Start chatting!
@@ -269,7 +272,7 @@ const IndirectPostForm = ({ handleClose }) => {
                 <CircularProgress />
               </Box>
             )}
-          </Grid> */}
+          </Grid>
           {/* parent grid end */}
         </Grid>
       </form>
