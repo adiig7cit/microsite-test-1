@@ -11,10 +11,10 @@ const CollegeDescription = () => {
         Welcome to{" "}
         {window.location.pathname === "/ucla" && <span>UCLA Chat</span>}
         {window.location.pathname === "/su" && (
-          <span>Seattle University Chat</span>
+          <span>Seattle Law Chat</span>
         )}
         {window.location.pathname === "/stetson" && (
-          <span>Stetson University Chat</span>
+          <span>Stetson Law Chat</span>
         )}
         !
       </h2>
@@ -23,10 +23,10 @@ const CollegeDescription = () => {
           Welcome to{" "}
           {window.location.pathname === "/ucla" && <span>UCLA Chat</span>}
           {window.location.pathname === "/su" && (
-            <span>Seattle University Chat</span>
+            <span>Seattle Law Chat</span>
           )}
           {window.location.pathname === "/stetson" && (
-            <span>Stetson University Chat</span>
+            <span>Stetson Law Chat</span>
           )}
           ! Connect directly with our student ambassadors via WhatsApp and dive
           into UCLA Laws rich academic community. Whether youre a prospective
@@ -45,7 +45,7 @@ const CollegeDescription = () => {
           )}
           {window.location.pathname === "/stetson" && (
             <span>Stetson University</span>
-          )}{" "}
+          )}.
           Connect directly with our student ambassadors via WhatsApp and dive{" "}
           into{" "}
           {window.location.pathname === "/ucla" && (
