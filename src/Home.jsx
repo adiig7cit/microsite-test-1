@@ -12,6 +12,9 @@ const Home = () => {
     const handleClick3 = () => {
       navigateTo(`/su`);
     };
+  const handleClick4 = () => {
+    navigateTo(`/wakelaw`);
+  };
   return (
     <div className="flex flex-col w-full h-screen gap-8 items-center justify-center bg-gray-500">
       <button
@@ -31,6 +34,12 @@ const Home = () => {
         onClick={handleClick3}
       >
         Seattle University
+      </button>
+      <button
+        className="bg-black text-white font-semibold text-lg px-4 py-3 rounded-lg w-56 hover:text-black hover:bg-white hover:cursor-pointer"
+        onClick={handleClick4}
+      >
+        Wake Forest Law
       </button>
     </div>
   );

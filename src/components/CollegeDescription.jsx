@@ -10,11 +10,12 @@ const CollegeDescription = () => {
       <h2 className="font-semibold text-2xl md:text-3xl w-full md:w-fit px-2">
         Welcome to{" "}
         {window.location.pathname === "/ucla" && <span>UCLA Chat</span>}
-        {window.location.pathname === "/su" && (
-          <span>Seattle Law Chat</span>
-        )}
+        {window.location.pathname === "/su" && <span>Seattle Law Chat</span>}
         {window.location.pathname === "/stetson" && (
           <span>Stetson Law Chat</span>
+        )}
+        {window.location.pathname === "/wakelaw" && (
+          <span>Wake Forest Law Chat</span>
         )}
         !
       </h2>
@@ -22,11 +23,12 @@ const CollegeDescription = () => {
         <p className="mt-4 px-2 text-lg">
           Welcome to{" "}
           {window.location.pathname === "/ucla" && <span>UCLA Chat</span>}
-          {window.location.pathname === "/su" && (
-            <span>Seattle Law Chat</span>
-          )}
+          {window.location.pathname === "/su" && <span>Seattle Law Chat</span>}
           {window.location.pathname === "/stetson" && (
             <span>Stetson Law Chat</span>
+          )}
+          {window.location.pathname === "/wakelaw" && (
+            <span>Wake Forest Law Chat</span>
           )}
           ! Connect directly with our student ambassadors via WhatsApp and dive
           into UCLA Laws rich academic community. Whether youre a prospective
@@ -45,8 +47,11 @@ const CollegeDescription = () => {
           )}
           {window.location.pathname === "/stetson" && (
             <span>Stetson University</span>
-          )}.
-          Connect directly with our student ambassadors via WhatsApp and dive{" "}
+          )}
+          {window.location.pathname === "/wakelaw" && (
+            <span>Wake Forest Law</span>
+          )}
+          . Connect directly with our student ambassadors via WhatsApp and dive{" "}
           into{" "}
           {window.location.pathname === "/ucla" && (
             <span>UCLA Law&rsquo;s</span>
@@ -56,6 +61,9 @@ const CollegeDescription = () => {
           )}
           {window.location.pathname === "/stetson" && (
             <span>Stetson University Law&rsquo;s</span>
+          )}
+          {window.location.pathname === "/wakelaw" && (
+            <span>Wake Forest Law&rsquo;s</span>
           )}{" "}
           rich academic community. Whether you&rsquo;re a prospective student or
           preparing to join us, get your queries answered from those who know

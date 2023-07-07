@@ -2,10 +2,12 @@ import { useState } from "react";
 import HeaderBackgroundImageUCLA from "./../assets/header_bg_ucla.png";
 import HeaderBackgroundImageStetson from './../assets/header_bg_stetson.png'
 import HeaderBackgroundImageSeattle from "./../assets/header_bg_seattle.png";
+import HeaderBackgroundWakeForest from "./../assets/header_bg_wakeforest.png"
 
 import HeaderMainImageUCLA from "./../assets/header_main_ucla.png";
 import HeaderMainImageSU from "./../assets/header_main_seattle.png";
 import HeaderMainImageStetson from "./../assets/header_main_stetson.png";
+import HeaderMainWakeForest from "./../assets/header_main_wakeforest.png"
 
 import Menu from "./Menu";
 
@@ -28,12 +30,18 @@ const Header = () => {
         {window.location.pathname === "/stetson" && (
           <img
             src={HeaderBackgroundImageStetson}
-            className="h-20 w-full md:h-44"
+            className="h-20 w-fit object-cover md:h-44"
           />
         )}
         {window.location.pathname === "/su" && (
           <img
             src={HeaderBackgroundImageSeattle}
+            className="h-20 w-full md:h-44"
+          />
+        )}
+        {window.location.pathname === "/wakelaw" && (
+          <img
+            src={HeaderBackgroundWakeForest}
             className="h-20 w-full md:h-44"
           />
         )}
@@ -92,6 +100,15 @@ const Header = () => {
         <div className="absolute inset-x-0 md:ml-20 lg:ml-28 -z-10 md:inset-x-auto md:inset-y-28 inset-y-10 lg:inset-y-24 flex justify-center">
           <img
             src={HeaderMainImageStetson}
+            className="h-20 w-20 lg:h-40 lg:w-40 md:h-32 md:w-32 rounded-full"
+          />
+        </div>
+      )}
+
+      {window.location.pathname === "/wakelaw" && (
+        <div className="absolute inset-x-0 md:ml-20 lg:ml-28 -z-10 md:inset-x-auto md:inset-y-28 inset-y-10 lg:inset-y-24 flex justify-center">
+          <img
+            src={HeaderMainWakeForest}
             className="h-20 w-20 lg:h-40 lg:w-40 md:h-32 md:w-32 rounded-full"
           />
         </div>
