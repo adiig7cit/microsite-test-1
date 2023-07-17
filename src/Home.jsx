@@ -14,6 +14,14 @@ const Home = () => {
     };
   const handleClick4 = () => {
     navigateTo(`/wakelaw`);
+
+  };
+  const handleClick5 = () => {
+    navigateTo(`/sandiego`);
+  };
+
+  const handleClick6 = () => {
+    navigateTo(`/templelaw`);
   };
   return (
     <div className="flex flex-col w-full h-screen gap-8 items-center justify-center bg-gray-500">
@@ -40,6 +48,18 @@ const Home = () => {
         onClick={handleClick4}
       >
         Wake Forest Law
+      </button>
+      <button
+        className="bg-black text-white font-semibold text-lg px-4 py-3 rounded-lg w-56 hover:text-black hover:bg-white hover:cursor-pointer"
+        onClick={handleClick5}
+      >
+        San Diego University
+      </button>
+      <button
+        className="bg-black text-white font-semibold text-lg px-4 py-3 rounded-lg w-56 hover:text-black hover:bg-white hover:cursor-pointer"
+        onClick={handleClick6}
+      >
+        Temple Law University
       </button>
     </div>
   );

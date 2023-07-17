@@ -17,6 +17,12 @@ const CollegeDescription = () => {
         {window.location.pathname === "/wakelaw" && (
           <span>Wake Forest Law Chat</span>
         )}
+        {window.location.pathname === "/templelaw" && (
+          <span>Temple Law Chat</span>
+        )}
+        {window.location.pathname === "/sandiego" && (
+          <span>San Diego Law Chat</span>
+        )}
         !
       </h2>
       {isSmallScreen ? (
@@ -26,6 +32,12 @@ const CollegeDescription = () => {
           {window.location.pathname === "/su" && <span>Seattle Law Chat</span>}
           {window.location.pathname === "/stetson" && (
             <span>Stetson Law Chat</span>
+          )}
+          {window.location.pathname === "/templelaw" && (
+            <span>Temple Law Chat</span>
+          )}
+          {window.location.pathname === "/sandiego" && (
+            <span>San Diego Law Chat</span>
           )}
           {window.location.pathname === "/wakelaw" && (
             <span>Wake Forest Law Chat</span>
@@ -50,6 +62,12 @@ const CollegeDescription = () => {
           )}
           {window.location.pathname === "/wakelaw" && (
             <span>Wake Forest Law</span>
+          )}
+          {window.location.pathname === "/sandiego" && (
+            <span>San Diego Law Chat</span>
+          )}
+          {window.location.pathname === "/templelaw" && (
+            <span>Temple Law Chat</span>
           )}
           . Connect directly with our student ambassadors via WhatsApp and dive{" "}
           into{" "}
